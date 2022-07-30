@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>form validation</title>
+	<style type="text/css">
+		form{
+			width: 300px;
+			margin: 15vh auto 0 auto;
+			padding: 25px;
+			background-color: whitesmoke;
+			border-radius: 4px;
+			font-size: 12px;
+		}
+		h1{
+			color: #0f2027;
+			text-align: center;
+		} 
+		input{ 
+			display: flex;
+			flex-direction: column;
+			border: 2px solid #f0f0f0;
+			border-radius: 4px;
+			font-size: 12px;
+			padding: 10px;
+			width: 90%;
+		}
+		button{
+			padding: 10px;
+			margin-top: 10px;
+			width: 100%;
+			color: white;
+			background-color: rgb(41,57,104);
+			border: none;
+			border-radius: 4px;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="containor">
+		<form id="form">
+			<h1>Registration Form</h1>
+			<div class="input-control">
+				<label for="usname">Username</label>
+				<input type="text" id="usname" name="uname"><br><br>
+				<div class="error"></div>
+			</div>
+			<div class="input-control">
+				<label for="mail">E-mail</label>
+				<input type="email" name="email" id="mail" ><br><br>
+				<div class="error"></div>
+			</div>
+			<div class="input-control">
+				<label for="phno">Phone number</label>
+				<input type="number" name="num" id="phno"><br><br>
+				<div class="error"></div>
+			</div>
+			<div class="input-control">
+				<label for="paswd">Password</label>
+				<input type="Password" name="pswd" id="paswd"><br><br>
+                <div class="error"></div>
+			</div>
+				<button type="submit" onclick="validation()">Submit</button>
+			</div>
+		</form>
+	</div>
+		<script type="text/javascript">
+			
+        function validation(){
+		var form = document.querySelector('form');
+		var usname = document.getElementById('usname').value;
+		var mail = document.getElementById('mail').value;
+		var phno = document.getElementById('phno').value;
+		var paswd = document.getElementById('paswd').value;
+        var pattern =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+		var usvalidity = /^[A-Za-z]+$/;
+		var phoneno = /^\d{10}$/;
+
+
+
+		    if (usname ==="") {
+		    	alert('username must be required');
+		    }
+		    if (usname.length<3) {
+		    	alert('username minimum 3 char');
+
+		    }
+		    if  (usname.match(usvalidity)){} 
+                  
+            else {
+                  	alert('username contain only alphabets');
+                         
+                  } 
+
+		    
+            
+
+
+            if (mail ==="") {
+		    	alert('email must be required');
+		    }
+		   if (mail.match(pattern)) {}
+		    	 
+		   else {
+                       alert('Not a validate email'); 
+                      
+		    	}
+		     
+
+
+            if (phno ==="") {
+		    	alert('phonenumber must be required');
+		    }
+		    if (phno.match(phoneno)){
+		    
+		    }
+		      else{
+		      	alert('Not a valid phonenumber');
+		      	    
+		      }
+
+
+            if (paswd ==="") {
+		    	alert('Password is required');
+		    }
+		    if (paswd.length< 6) {
+		    	alert('Password must be at least 6 character');
+		    }
+            }
+
+</script>
+</body>
+</html>
